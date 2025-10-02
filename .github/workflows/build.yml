@@ -11,6 +11,8 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64
+      - name: build zlib
+        run: "cd zlib ; nmake -f win32\\Makefile.msc zlib.lib"
       - name: build zip
         run: "cd zip ; nmake -f win32\\makefile.a64"
       - name: upload binary
