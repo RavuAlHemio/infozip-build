@@ -1,0 +1,14 @@
+name: Info-ZIP build
+on: [push]
+jobs:
+  build-zip-win-x64:
+    runs-on: windows-latest
+    steps:
+      - name: build zip
+        run: "cd zip\\win32 ; nmake -f makefile.w32"
+      - name: upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-win-x64
+          path:
+            zip/win32/zip.exe
