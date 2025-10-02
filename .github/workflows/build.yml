@@ -8,9 +8,9 @@ jobs:
         # odd that this doesn't happen by default
         uses: actions/checkout@v4
       - name: set up VC++ build environment
-        uses: microsoft/setup-msbuild@v2
+        uses: ilammy/msvc-dev-cmd@v1
         with:
-          msbuild-architecture: x64
+          arch: amd64
       - name: build zip
         run: "cd zip\\win32 ; nmake -f makefile.w32"
       - name: upload binary
