@@ -426,7 +426,7 @@ LINKOPT_SIZE = -opt:nowin98
 
 # How to link
 .obj.exe:
-	$(link) $(ldebug) $(conlflags) $(conlibs_iz) $** -out:$@
+	$(link) $(ldebug) $(conlflags) $** $(conlibs_iz) -out:$@
 
 
 # Default target is all command-line executables
@@ -439,9 +439,9 @@ all: unzips guisfx dll dllsample lib
 
 
 unzip.exe:	$(OBJU) $(BZIPLIBEXE) winapp.res
-	$(link) $(ldebug) $(conlflags) $(conlibs_iz) $** -out:$@
+	$(link) $(ldebug) $(conlflags) $** $(conlibs_iz) -out:$@
 unzipsfx.exe:	$(OBJX) $(BZIPLIBEXE)
-	$(link) $(ldebug) $(conlflags) $(conlibs_iz) $** $(LINKOPT_SIZE) -out:$@
+	$(link) $(ldebug) $(conlflags) $** $(conlibs_iz) $(LINKOPT_SIZE) -out:$@
 funzip.exe:	$(OBJF)
 unzip32.dll:	$(OBJD) $(BZIPLIBDLL) windll.res $(WINDLL_DEF)
 	$(link) $(ldebug) $(dlllflags) $(conlibs_izdll) -def:$(WINDLL_DEF) \
@@ -452,7 +452,7 @@ SFXWiz32.exe:	$(OBGX) sfxwiz.res unzsfx32.lib $(BZIPLIBEXE)
 	$(link) $(ldebug) $(guilflags) $(guilibs_iz) \
 		$(OBGX) sfxwiz.res unzsfx32.lib $(LINKOPT_SIZE) -out:$@
 uzexampl.exe:	uzexampl.obj
-	$(link) $(ldebug) $(conlflags) $(conlibs) version.lib $** -out:$@
+	$(link) $(ldebug) $(conlflags) $** $(conlibs) version.lib -out:$@
 $(OB)unzip32.lib:	$(OBJB)
 	$(link) -lib $** -out:$@
 
