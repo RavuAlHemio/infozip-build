@@ -19,3 +19,6 @@ jobs:
           name: zip-win-x64
           path:
             zip/zip.exe
+            zip/zipnote.exe
+            zip/zipsplit.exe
+            zip/zipcloak.exe
