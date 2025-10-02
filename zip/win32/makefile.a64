@@ -38,7 +38,7 @@ OBJZ = zip.obj crypt.obj ttyio.obj zipfile.obj zipup.obj fileio.obj util.obj \
 
 OBJI = deflate.obj trees.obj $(ASMOBJS) win32.obj win32zip.obj nt.obj win32i64.obj
 
-OBJU = zipfile_.obj fileio_.obj util_.obj globals.obj win32_.obj win32i64.obj
+OBJU = zipfile_.obj fileio_.obj util_.obj globals.obj win32_.obj win32i64.obj crc32.obj
 OBJN = zipnote.obj $(OBJU)
 OBJC = zipcloak.obj crc32_.obj crypt_.obj ttyio.obj $(OBJU)
 OBJS = zipsplit.obj $(OBJU)
