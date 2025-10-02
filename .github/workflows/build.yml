@@ -17,6 +17,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zip-win-x64
+          if-no-files-found: error
           path: |
             zip/zip.exe
             zip/zipnote.exe
@@ -37,6 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zip-win-x86
+          if-no-files-found: error
           path: |
             zip/zip.exe
             zip/zipnote.exe
@@ -58,6 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unzip-win-x64
+          if-no-files-found: error
           path: |
             unzip/unzip.exe
             unzip/funzip.exe
@@ -77,6 +80,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unzip-win-x86
+          if-no-files-found: error
           path: |
             unzip/unzip.exe
             unzip/funzip.exe
