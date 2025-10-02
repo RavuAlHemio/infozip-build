@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zip-win-x64
-          path:
+          path: |
             zip/zip.exe
             zip/zipnote.exe
             zip/zipsplit.exe
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zip-win-x86
-          path:
+          path: |
             zip/zip.exe
             zip/zipnote.exe
             zip/zipsplit.exe
@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unzip-win-x64
-          path:
+          path: |
             unzip/unzip.exe
             unzip/funzip.exe
             unzip/unzipsfx.exe
@@ -77,7 +77,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unzip-win-x86
-          path:
+          path: |
             unzip/unzip.exe
             unzip/funzip.exe
             unzip/unzipsfx.exe
