@@ -42,3 +42,42 @@ jobs:
             zip/zipnote.exe
             zip/zipsplit.exe
             zip/zipcloak.exe
+  build-unzip-win-x64:
+    runs-on: windows-latest
+    steps:
+      - name: check out repository code
+        # odd that this doesn't happen by default
+        uses: actions/checkout@v4
+      - name: set up VC++ build environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64
+      - name: build unzip
+        run: "cd unzip ; nmake -f win32\\Makefile"
+      - name: upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: unzip-win-x64
+          path:
+            unzip/unzip.exe
+            unzip/funzip.exe
+            unzip/unzipsfx.exe
+  build-unzip-win-x86:
+    runs-on: windows-latest
+    steps:
+      - name: check out repository code
+        uses: actions/checkout@v4
+      - name: set up VC++ build environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64_x86
+      - name: build unzip
+        run: "cd unzip ; nmake -f win32\\Makefile"
+      - name: upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: unzip-win-x86
+          path:
+            unzip/unzip.exe
+            unzip/funzip.exe
+            unzip/unzipsfx.exe
