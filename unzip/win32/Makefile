@@ -264,12 +264,8 @@ hc     = hcrtf -xn
 
 # declarations common to all compiler options
 cflags = -c -W3 -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo
-!IF "$(CPU)" == "i386"
-cflags = $(cflags) -D_X86_=1
-!ELSE
 !IF "$(CPU)" == "ALPHA"
 cflags = $(cflags) -D_ALPHA_=1
-!ENDIF
 !ENDIF
 
 # for Windows applications that use the C Run-Time libraries
