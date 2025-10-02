@@ -22,3 +22,23 @@ jobs:
             zip/zipnote.exe
             zip/zipsplit.exe
             zip/zipcloak.exe
+  build-zip-win-x86:
+    runs-on: windows-latest
+    steps:
+      - name: check out repository code
+        uses: actions/checkout@v4
+      - name: set up VC++ build environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64_x86
+      - name: build zip
+        run: "cd zip ; nmake -f win32\\makefile.w32"
+      - name: upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-win-x86
+          path:
+            zip/zip.exe
+            zip/zipnote.exe
+            zip/zipsplit.exe
+            zip/zipcloak.exe
