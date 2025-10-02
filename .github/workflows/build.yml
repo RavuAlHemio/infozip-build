@@ -53,7 +53,7 @@ jobs:
         with:
           arch: amd64
       - name: build unzip
-        run: "cd unzip ; nmake -f win32\\Makefile"
+        run: "cd unzip ; nmake -f win32\\Makefile NOASM=1"
       - name: upload binary
         uses: actions/upload-artifact@v4
         with:
