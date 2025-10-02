@@ -11,8 +11,6 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64
-      - name: preprocess zip.c to see what is going wrong
-        run: "cd zip ; cl /nologo /E /DNO_ASM_CRC /DASMV /DWIN32 zip.c"
       - name: build zip
         run: "cd zip ; nmake -f win32\\makefile.a64"
       - name: upload binary

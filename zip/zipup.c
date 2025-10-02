@@ -1207,7 +1207,7 @@ local unsigned file_read(buf, size)
             char c;
 
             if ((c = *b++) == '\n') {
-               *buf++ = CR; *buf++ = LF; len++;
+               *buf++ = ZIP_CR; *buf++ = ZIP_LF; len++;
             } else {
               *buf++ = (char)ascii[(uch)c];
             }
@@ -1217,7 +1217,7 @@ local unsigned file_read(buf, size)
 #endif /* EBCDIC */
       {
          do {
-            if ((*buf++ = *b++) == '\n') *(buf-1) = CR, *buf++ = LF, len++;
+            if ((*buf++ = *b++) == '\n') *(buf-1) = ZIP_CR, *buf++ = ZIP_LF, len++;
          } while (--size != 0);
       }
       buf -= len;
@@ -1249,7 +1249,7 @@ local unsigned file_read(buf, size)
             if ((c = *b++) == '\r' && *b == '\n') {
                len--;
             } else {
-               *buf++ = (char)(c == '\n' ? LF : ascii[(uch)c]);
+               *buf++ = (char)(c == '\n' ? ZIP_LF : ascii[(uch)c]);
             }
          } while (--size != 0);
       }
@@ -1257,14 +1257,14 @@ local unsigned file_read(buf, size)
 #endif /* EBCDIC */
       {
          do {
-            if (( *buf++ = *b++) == CR && *b == LF) buf--, len--;
+            if (( *buf++ = *b++) == ZIP_CR && *b == ZIP_LF) buf--, len--;
          } while (--size != 0);
       }
       if (len == 0) {
          zread(ifile, buf, 1); len = 1; /* keep single \r if EOF */
 #ifdef EBCDIC
          if (aflag == ASCII) {
-            *buf = (char)(*buf == '\n' ? LF : ascii[(uch)(*buf)]);
+            *buf = (char)(*buf == '\n' ? ZIP_LF : ascii[(uch)(*buf)]);
          }
 #endif
       } else {
