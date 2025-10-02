@@ -282,7 +282,7 @@
 #  define INT_SPRINTF
 #  define timezone      _timezone
 #  define lenEOL        2
-#  define PutNativeEOL  {*q++ = native(CR); *q++ = native(LF);}
+#  define PutNativeEOL  {*q++ = native(UNZ_CR); *q++ = native(UNZ_LF);}
 #  undef SHORT_NAMES
 #  if (!defined(NOTIMESTAMP) && !defined(TIMESTAMP))
 #    define TIMESTAMP
@@ -339,7 +339,7 @@
 #    define DATE_FORMAT DF_YMD   /* Japanese standard */
 #  endif
 #  define lenEOL        1
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #  define INT_SPRINTF
 #  define SYMLINKS
 #  ifdef SFX
@@ -417,7 +417,7 @@
 #  endif
 #  define DATE_FORMAT     dateformat()
 #  define lenEOL          2
-#  define PutNativeEOL    {*q++ = native(CR); *q++ = native(LF);}
+#  define PutNativeEOL    {*q++ = native(UNZ_CR); *q++ = native(UNZ_LF);}
 #  if (!defined(NO_EF_UT_TIME) && !defined(USE_EF_UT_TIME))
 #    define USE_EF_UT_TIME
 #  endif
@@ -445,7 +445,7 @@
 #    define DATE_FORMAT DF_MDY
 #  endif
 #  define lenEOL        1
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #endif /* MTS */
 
  /*---------------------------------------------------------------------------
@@ -471,7 +471,7 @@
 #    define DATE_FORMAT DF_MDY
 #  endif
 #  define lenEOL        1
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #  define DIR_END       '_'
 #  define RETURN        QReturn
 #  undef PATH_MAX
@@ -502,7 +502,7 @@
 #    endif
 #  endif
    /* use a single LF delimiter so that writes to 101 text files work */
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #  define lenEOL        1
 #  ifndef DATE_FORMAT
 #    define DATE_FORMAT  DF_DMY
@@ -1840,8 +1840,8 @@
 #define MAX_BITS    13                 /* used in unshrink() */
 #define HSIZE       (1 << MAX_BITS)    /* size of global work area */
 
-#define LF     10        /* '\n' on ASCII machines; must be 10 due to EBCDIC */
-#define CR     13        /* '\r' on ASCII machines; must be 13 due to EBCDIC */
+#define UNZ_LF 10        /* '\n' on ASCII machines; must be 10 due to EBCDIC */
+#define UNZ_CR 13        /* '\r' on ASCII machines; must be 13 due to EBCDIC */
 #define CTRLZ  26        /* DOS & OS/2 EOF marker (used in fileio.c, vms.c) */
 
 #ifdef EBCDIC

@@ -102,7 +102,7 @@
 #    define DATE_FORMAT DF_MDY
 #  endif
 #  define lenEOL        1
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #  define SCREENSIZE(ttrows, ttcols)  screensize(ttrows, ttcols)
 #  define SCREENWIDTH   80
 #  define SCREENLWRAP   screenlinewrap()

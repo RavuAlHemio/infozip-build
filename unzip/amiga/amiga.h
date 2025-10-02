@@ -146,7 +146,7 @@ typedef struct stat z_stat;
 #  define DATE_FORMAT     DF_MDY
 #endif
 #define lenEOL            1
-#define PutNativeEOL      *q++ = native(LF);
+#define PutNativeEOL      *q++ = native(UNZ_LF);
 #define PIPE_ERROR        0
 
 #ifdef GLOBAL         /* crypt.c usage conflicts with AmigaDOS headers */

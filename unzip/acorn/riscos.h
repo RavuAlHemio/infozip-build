@@ -99,7 +99,7 @@ typedef struct {
 #    define DATE_FORMAT DF_DMY
 #  endif
 #  define lenEOL 1
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #  define USE_STRM_INPUT
 #  define USE_FWRITE
 #  define PIPE_ERROR (errno == 9999)    /* always false */

@@ -1007,18 +1007,18 @@ static int partflush(__G__ rawbuf, size, unshrink)
 
         /* else not VMS text */ {
             p = rawbuf;
-            if (*p == LF && G.didCRlast)
+            if (*p == UNZ_LF && G.didCRlast)
                 ++p;
             G.didCRlast = FALSE;
             for (q = transbuf;  (extent)(p-rawbuf) < (extent)size;  ++p) {
-                if (*p == CR) {           /* lone CR or CR/LF: treat as EOL  */
+                if (*p == UNZ_CR) {           /* lone CR or CR/LF: treat as EOL  */
                     PutNativeEOL
                     if ((extent)(p-rawbuf) == (extent)size-1)
                         /* last char in buffer */
                         G.didCRlast = TRUE;
-                    else if (p[1] == LF)  /* get rid of accompanying LF */
+                    else if (p[1] == UNZ_LF)  /* get rid of accompanying LF */
                         ++p;
-                } else if (*p == LF)      /* lone LF */
+                } else if (*p == UNZ_LF)      /* lone LF */
                     PutNativeEOL
                 else
 #ifndef DOS_FLX_OS2_W32
@@ -2115,7 +2115,7 @@ int do_string(__G__ length, option)   /* return PK-type error code */
              * (since used before A_TO_N(), check for CR instead of '\r')
              */
             while (*p) {
-                while (*p == CR)
+                while (*p == UNZ_CR)
                     ++p;
                 *q++ = *p++;
             }
@@ -2162,9 +2162,9 @@ int do_string(__G__ length, option)   /* return PK-type error code */
                     *q++ = '[';
                 } else if (*p == 0x13) {   /* ASCII ^S (pause) */
                     pause = TRUE;
-                    if (p[1] == LF)        /* ASCII LF */
+                    if (p[1] == UNZ_LF)        /* ASCII LF */
                         *q++ = *++p;
-                    else if (p[1] == CR && p[2] == LF) {  /* ASCII CR LF */
+                    else if (p[1] == UNZ_CR && p[2] == UNZ_LF) {  /* ASCII CR LF */
                         *q++ = *++p;
                         *q++ = *++p;
                     }

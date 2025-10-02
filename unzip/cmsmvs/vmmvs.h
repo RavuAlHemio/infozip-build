@@ -86,7 +86,7 @@
  * '\n' line terminator.
  */
 #if 0
-#define PutNativeEOL  *q++ = native(LF);
+#define PutNativeEOL  *q++ = native(UNZ_LF);
 #else
 #define PutNativeEOL  *q++ = '\n';
 #endif

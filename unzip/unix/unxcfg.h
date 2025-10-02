@@ -191,7 +191,7 @@ typedef struct stat z_stat;
 #ifdef EBCDIC
 #  define PutNativeEOL  *q++ = '\n';
 #else
-#  define PutNativeEOL  *q++ = native(LF);
+#  define PutNativeEOL  *q++ = native(UNZ_LF);
 #endif
 #define SCREENSIZE(ttrows, ttcols)  screensize(ttrows, ttcols)
 #define SCREENWIDTH     80
