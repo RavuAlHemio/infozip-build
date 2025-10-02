@@ -74,7 +74,9 @@ BOOL WINAPI SearchPath(LPCTSTR, LPCTSTR, LPCTSTR, UINT, LPTSTR, LPTSTR *);
 #define ERROR_SUCCESS                   0
 #define ERROR_INSUFFICIENT_BUFFER       122
 
+#ifndef InterlockedExchange
 LONG WINAPI InterlockedExchange(LPLONG, LONG);
+#endif
 
 #define ACCESS_SYSTEM_SECURITY          0x01000000L
 
