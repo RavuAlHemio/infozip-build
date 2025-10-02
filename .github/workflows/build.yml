@@ -32,7 +32,7 @@ jobs:
         with:
           arch: amd64_x86
       - name: build zip
-        run: "cd zip ; nmake -f win32\\makefile.w32"
+        run: "cd zip ; nmake -f win32\\makefile.w32 VS80COMNTOOLS=1"
       - name: upload binary
         uses: actions/upload-artifact@v4
         with:
